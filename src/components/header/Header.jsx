@@ -1,9 +1,9 @@
-
+import Navigation from "./Navigation.jsx"
 
 const Header = () =>{
     return(
         <div>
-            header
+            <Navigation/>
         </div>
     )
 }
