@@ -1,6 +1,6 @@
 import dateFormat from "dateformat"
 const LoadComment = (props) => {
-  console.log(props);
+  //console.log(props);
   return props.comments.map((comment) => {
     return (
       <div key={comment.id}>
