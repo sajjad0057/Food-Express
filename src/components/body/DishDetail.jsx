@@ -14,7 +14,7 @@ const DishDetail = (props) => {
           {props.dish.description}
           </CardText>
           <h2>Comments : </h2>
-          <LoadComment comments={props.dish.comments} />
+          <LoadComment comments={props.comments} />
 
           
           

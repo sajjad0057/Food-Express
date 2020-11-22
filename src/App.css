@@ -2,3 +2,22 @@
   text-align: center;
 }
 
+.footer{
+  background-color: rgb(52, 58, 64);
+  margin: 0px auto;
+  padding-top: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color:white;
+
+}
+
+.row-content{
+  margin: 0px auto;
+  padding: 50px 0px 50px 0px;
+  min-height: 400px;
+
+}
+
+
