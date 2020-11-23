@@ -34,6 +34,7 @@ class Contact extends Component {
   };
 
   render() {
+    document.title = "REs | Taurant - Contact";
     return (
       <div className="container">
         <div
