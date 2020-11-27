@@ -17,7 +17,7 @@ class Menu extends Component {
     modalOpen: false,
   };
   componentDidMount() {
-    console.log("Menu State : ", this.state);
+    //console.log("Menu State : ", this.state);
     console.log("Menu Props : ", this.props);
   }
 
@@ -59,7 +59,7 @@ class Menu extends Component {
       <div className="container">
         <div className="row">
           <CardColumns>{menu}</CardColumns>
-          <Modal isOpen={this.state.modalOpen} onClick={this.toggleModal}>
+          <Modal isOpen={this.state.modalOpen}>
             <ModalBody>{details}</ModalBody>
             <ModalFooter>
               <Button color="secondary " onClick={this.toggleModal}>

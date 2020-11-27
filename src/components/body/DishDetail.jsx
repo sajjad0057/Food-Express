@@ -1,5 +1,10 @@
 import { Card, CardImg, CardBody, CardTitle, CardText } from "reactstrap";
 import LoadComment from "./LoadComment.jsx";
+import CommentForm from "./CommentForm.jsx";
+
+
+
+
 const DishDetail = (props) => {
   return (
     <div>
@@ -10,14 +15,13 @@ const DishDetail = (props) => {
           <CardText style={{ fontWeight: "bold" }}>
             price : {props.dish.price} /-
           </CardText>
-          <CardText style={{borderBottom:"2px solid"}}>
-          {props.dish.description}
+          <CardText style={{ borderBottom: "2px solid" }}>
+            {props.dish.description}
           </CardText>
           <h2>Comments : </h2>
           <LoadComment comments={props.comments} />
 
-          
-          
+          <CommentForm dishId = { props.dish.id }/>
         </CardBody>
       </Card>
     </div>
@@ -25,3 +29,4 @@ const DishDetail = (props) => {
 };
 
 export default DishDetail;
+

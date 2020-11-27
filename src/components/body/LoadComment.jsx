@@ -1,4 +1,7 @@
 import dateFormat from "dateformat"
+
+
+
 const LoadComment = (props) => {
   //console.log(props);
   return props.comments.map((comment) => {

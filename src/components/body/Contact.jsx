@@ -23,8 +23,10 @@ class Contact extends Component {
         ? event.target.checked
         : event.target.value;
     const name = event.target.name;
+    {/**if we want to set object property in veriable ,
+     in the object veriable must be keep in 3rd Brackets [variable name] : value */}
     this.setState({
-      [name]: value,
+      [name]: value,   
     });
   };
 
