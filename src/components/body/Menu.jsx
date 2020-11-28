@@ -3,7 +3,8 @@ import MenuItem from "./MenuItem.jsx";
 import DishDetail from "./DishDetail.jsx";
 import { CardColumns, Modal, ModalBody, ModalFooter, Button } from "reactstrap";
 import { connect } from "react-redux";
-import * as actionTypes from "../../redux/actionTypes.js"
+import { addComment } from "../../redux/actionCreators.js";
+
 
 const mapStateToProps = (state) => {
   //console.log("Menu.jsx state ---->",state);
@@ -13,22 +14,13 @@ const mapStateToProps = (state) => {
   };
 };
 
-/* payload : {} is a object, in dispatch() function By this object
-   send all info to store for performing something */
+
 
 const mapDispatchToProps = (dispatch) => {
   return {
     addComment: (dishId, rating, author, comment) => {
-      dispatch({
-        type: actionTypes.ADD_COMMENT,
-        payload: {
-          dishId: dishId,
-          author: author,
-          rating: rating,
-          comment: comment,
-        },
-      });
-    },
+      dispatch(addComment(dishId, rating, author, comment))
+    }
   };
 };
 
