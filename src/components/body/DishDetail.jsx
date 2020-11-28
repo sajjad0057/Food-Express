@@ -6,6 +6,7 @@ import CommentForm from "./CommentForm.jsx";
 
 
 const DishDetail = (props) => {
+  console.log("DishDetail.jsx---->",props);
   return (
     <div>
       <Card style={{ margin: "25px" }}>
@@ -21,7 +22,7 @@ const DishDetail = (props) => {
           <h2>Comments : </h2>
           <LoadComment comments={props.comments} />
 
-          <CommentForm dishId = { props.dish.id }/>
+          <CommentForm dishId = { props.dish.id } addComment={ props.addComment }/>
         </CardBody>
       </Card>
     </div>

@@ -1,27 +1,10 @@
 import React, { Component } from "react";
 import { Form, Button, Input } from "reactstrap";
-import { connect } from "react-redux";
 
 
 
-  /* payload : {} is a object, in dispatch() function By this object
-   send all info to store for performing something */
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addComment: (dishId, rating, author, comment) => {
-      dispatch({
-        type: "ADD_COMMENT",
-        payload: {
-          dishId: dishId,
-          author: author,
-          rating: rating,
-          comment: comment,
-        },
-      });
-    },
-  };
-};
+
 
 class CommentForm extends Component {
   constructor(props) {
@@ -104,7 +87,7 @@ class CommentForm extends Component {
   }
 }
 
-export default connect(null,mapDispatchToProps)(CommentForm);
+export default CommentForm;
 
 /* connect() function receive two parameter 1st one mapStateToProps and 2nd mapDispatchToProps..
 if don't have mapStateToProps connent() function receive null as a 1st parameter */

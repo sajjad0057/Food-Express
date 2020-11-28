@@ -11,6 +11,25 @@ const mapStateToProps = (state) => {
   };
 };
 
+/* payload : {} is a object, in dispatch() function By this object
+   send all info to store for performing something */
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addComment: (dishId, rating, author, comment) => {
+      dispatch({
+        type: "ADD_COMMENT",
+        payload: {
+          dishId: dishId,
+          author: author,
+          rating: rating,
+          comment: comment,
+        },
+      });
+    },
+  };
+};
+
 class Menu extends Component {
   state = {
     selectedDish: null,
@@ -18,7 +37,7 @@ class Menu extends Component {
   };
   componentDidMount() {
     //console.log("Menu State : ", this.state);
-    console.log("Menu Props : ", this.props);
+    console.log("Menu.jsx Props : ", this.props);
   }
 
   onDishSelect = (dish) => {
@@ -52,7 +71,11 @@ class Menu extends Component {
         (comment) => comment.dishId === this.state.selectedDish.id
       );
       details = (
-        <DishDetail dish={this.state.selectedDish} comments={comments} />
+        <DishDetail
+          dish={this.state.selectedDish}
+          comments={comments}
+          addComment={this.props.addComment}
+        />
       );
     }
     return (
@@ -73,8 +96,11 @@ class Menu extends Component {
   }
 }
 
-export default connect(mapStateToProps)(Menu);
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);
 
-{
+
   /* React-Redux provides a connect function for you to connect your component to the store */
-}
+  /* connect() function receive two parameter 1st one mapStateToProps and 2nd mapDispatchToProps..
+     if don't have mapStateToProps connent() function receive null as a 1st parameter
+ */
+
