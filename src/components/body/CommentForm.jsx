@@ -3,9 +3,6 @@ import { Form, Button, Input } from "reactstrap";
 
 
 
-
-
-
 class CommentForm extends Component {
   constructor(props) {
     super(props);
@@ -41,7 +38,7 @@ class CommentForm extends Component {
   };
 
   render() {
-    console.log("Comment Form --->", this.props);
+    //console.log("Comment Form --->", this.props);
     return (
       <div>
         <Form onSubmit={this.handleSubmit}>

@@ -6,7 +6,7 @@ import CommentForm from "./CommentForm.jsx";
 
 
 const DishDetail = (props) => {
-  console.log("DishDetail.jsx---->",props);
+  //console.log("DishDetail.jsx---->",props);
   return (
     <div>
       <Card style={{ margin: "25px" }}>
