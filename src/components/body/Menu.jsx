@@ -5,6 +5,7 @@ import { CardColumns, Modal, ModalBody, ModalFooter, Button } from "reactstrap";
 import { connect } from "react-redux";
 
 const mapStateToProps = (state) => {
+  //console.log("Menu.jsx state ---->",state);
   return {
     dishes: state.dishes,
     comments: state.comments,
