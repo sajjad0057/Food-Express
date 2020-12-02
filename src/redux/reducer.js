@@ -1,6 +1,10 @@
 import COMMNETS from "../data/comments.js";
 import { combineReducers } from "redux";
 import * as actionTypes from "./actionTypes.js"; 
+import {initialContactForm} from "./form.js";
+import {createForms} from "react-redux-form";
+
+
 
 const dishReducer = (dishState = { isLoading: false, dishes: [] }, action) => {
   switch (action.type) {
@@ -45,6 +49,9 @@ const commentReducer = (commentState = COMMNETS, action) => {
 export const Reducer = combineReducers({
   dishes: dishReducer,
   comments: commentReducer,
+  ...createForms({
+    feedback : initialContactForm,
+  })
 });
 
 /* combineReducers() function uses to combine two or more helperReducer function,
