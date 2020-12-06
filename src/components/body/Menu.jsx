@@ -15,7 +15,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-
+ 
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -46,7 +46,7 @@ class Menu extends Component {
     this.toggleModal();
   };
 
-  toggleModal = () => {
+  toggleModal = () => { 
     this.setState({
       modalOpen: !this.state.modalOpen,
     });

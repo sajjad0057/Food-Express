@@ -1,6 +1,7 @@
 import { Card, CardImg, CardBody, CardTitle, CardText } from "reactstrap";
 import LoadComment from "./LoadComment.jsx";
 import CommentForm from "./CommentForm.jsx";
+import { baseUrl } from "../../redux/baseUrl.js";
 
 
 
@@ -10,7 +11,7 @@ const DishDetail = (props) => {
   return (
     <div>
       <Card style={{ margin: "25px" }}>
-        <CardImg src={props.dish.image} alt={props.dish.name} />
+        <CardImg src={baseUrl+props.dish.image} alt={props.dish.name} />
         <CardBody style={{ textAlign: "left" }}>
           <CardTitle>{props.dish.name}</CardTitle>
           <CardText style={{ fontWeight: "bold" }}>
@@ -25,7 +26,7 @@ const DishDetail = (props) => {
           <CommentForm dishId = { props.dish.id } addComment={ props.addComment }/>
         </CardBody>
       </Card>
-    </div>
+    </div> 
   );
 };
 
