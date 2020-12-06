@@ -1,10 +1,7 @@
-import COMMNETS from "../data/comments.js";
 import { combineReducers } from "redux";
-import * as actionTypes from "./actionTypes.js"; 
-import {initialContactForm} from "./form.js";
-import {createForms} from "react-redux-form";
-
-
+import * as actionTypes from "./actionTypes.js";
+import { initialContactForm } from "./form.js";
+import { createForms } from "react-redux-form";
 
 const dishReducer = (dishState = { isLoading: false, dishes: [] }, action) => {
   switch (action.type) {
@@ -12,24 +9,38 @@ const dishReducer = (dishState = { isLoading: false, dishes: [] }, action) => {
       return {
         ...dishState,
         isLoading: true,
-        
       };
     case actionTypes.LOAD_DISHES:
       //console.log("reducer.js",action.payload);
       return {
         ...dishState,
-        isLoading : false,
-        dishes : action.payload
-
-      }
+        isLoading: false,
+        dishes: action.payload,
+      };
     default:
       return dishState;
   }
 };
 
-const commentReducer = (commentState = COMMNETS, action) => {
+const commentReducer = (
+  commentState = { isLoading: true, comments: [] },
+  action
+) => {
   //console.log("reducer.js action ----> ",action);
   switch (action.type) {
+    case actionTypes.LOAD_COMMENTS:
+      //console.log("********",action.payload);
+      return {
+        ...commentState,
+        isLoading: false,
+        comments: action.payload,
+      };
+    case actionTypes.COMMENT_LOADING:
+      return {
+        ...commentState,
+        isLoading: true,
+        comments: [],
+      };
     case actionTypes.ADD_COMMENT:
       let newComment = action.payload;
       newComment.id = commentState.length; // for add new object property javaScript follow "objectName.propertyName = value" format.
@@ -40,7 +51,7 @@ const commentReducer = (commentState = COMMNETS, action) => {
     /* The concat() method is used to join two or more arrays.
        This method does not change the existing arrays, but returns a new array,
        containing the values of the joined arrays.
-    */ 
+    */
     default:
       return commentState;
   }
@@ -50,8 +61,8 @@ export const Reducer = combineReducers({
   dishes: dishReducer,
   comments: commentReducer,
   ...createForms({
-    feedback : initialContactForm,
-  })
+    feedback: initialContactForm,
+  }),
 });
 
 /* combineReducers() function uses to combine two or more helperReducer function,
