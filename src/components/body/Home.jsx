@@ -7,6 +7,7 @@ class Home extends Component {
         return(
             <div>
                 <Loading/>
+                <p>Home page will be constructed in future</p>
             </div>
         )
     }

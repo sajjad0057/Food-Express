@@ -3,7 +3,7 @@ import * as actionTypes from "./actionTypes.js";
 import { initialContactForm } from "./form.js";
 import { createForms } from "react-redux-form";
 
-const dishReducer = (dishState = { isLoading: false, dishes: [] }, action) => {
+const dishReducer = (dishState = { isLoading: false, errMess:null, dishes: [] }, action) => {
   switch (action.type) {
     case actionTypes.DISHES_LOADING:
       return {
@@ -17,15 +17,19 @@ const dishReducer = (dishState = { isLoading: false, dishes: [] }, action) => {
         isLoading: false,
         dishes: action.payload,
       };
+    case actionTypes.DISHES_FAILED:
+      return {
+        ...dishState,
+        isLoading : false,
+        errMess : action.payload,
+        dishes : null,
+      }
     default:
       return dishState;
   }
 };
 
-const commentReducer = (
-  commentState = { isLoading: true, comments: [] },
-  action
-) => {
+const commentReducer = (commentState = { isLoading: true, comments: [] },action) => {
   //console.log("reducer.js action ----> ",action);
   switch (action.type) {
     case actionTypes.LOAD_COMMENTS:
@@ -43,10 +47,10 @@ const commentReducer = (
       };
     case actionTypes.ADD_COMMENT:
       let newComment = action.payload;
-      newComment.id = commentState.length; // for add new object property javaScript follow "objectName.propertyName = value" format.
-      newComment.date = new Date().toDateString();
-      //console.log("reducer.js newComment --->", newComment);
-      return commentState.concat(newComment);
+      return {
+        ...commentState,
+        comments:commentState.comments.concat(newComment)
+      }
 
     /* The concat() method is used to join two or more arrays.
        This method does not change the existing arrays, but returns a new array,

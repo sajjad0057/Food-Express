@@ -5,6 +5,7 @@ import { CardColumns, Modal, ModalBody, ModalFooter, Button } from "reactstrap";
 import { connect } from "react-redux";
 import { addComment, fetchDishes,fetchComments } from "../../redux/actionCreators.js";
 import Loading from "./Loading.js"
+import { Alert } from "reactstrap";
 
 
 const mapStateToProps = (state) => {
@@ -18,6 +19,7 @@ const mapStateToProps = (state) => {
  
 
 const mapDispatchToProps = (dispatch) => {
+  //console.log("Menu.jsx dispatch ---->",dispatch)
   return {
     addComment: (dishId, rating, author, comment) => dispatch(addComment(dishId, rating, author, comment)),
       fetchDishes: ()=> dispatch(fetchDishes()),
@@ -61,6 +63,11 @@ class Menu extends Component {
     if(this.props.dishes.isLoading){
       return(
         <Loading/>
+      )
+    }
+    else if(this.props.dishes.errMess !=null){
+      return(
+      <Alert color="warning"><h1>{this.props.dishes.errMess}</h1></Alert>
       )
     }
     else{

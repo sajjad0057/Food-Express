@@ -1,13 +1,14 @@
 import React from 'react';
+import Loading from "./Loading.js";
 
 
 const About =()=>{
     document.title = "REs | Taurant - About"
     return(
-        <div className="col-12" style={{padding:"60px"}}>
-            <span className="fa fa-spinner fa-5x text-secondary fa-fw fa-pulse">
+        <div >
+            <Loading/>
+            <p>About Page will be constructed in future</p>
 
-            </span>
         </div>
     )
 }
